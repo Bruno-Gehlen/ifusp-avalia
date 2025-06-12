@@ -98,6 +98,16 @@ button[type="submit"]:hover {
 }
 
 #evaluation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.evaluation-card {
     background: var(--ifusp-branco);
     padding: 20px;
     border-radius: 5px;
@@ -135,4 +145,99 @@ textarea#comments {
     min-height: 80px;
     max-height: 300px;
     overflow-y: auto;
+}
+
+/* Navigation styles */
+nav {
+    margin: 20px 0;
+    text-align: center;
+}
+
+nav a {
+    margin-right: 24px;
+    font-weight: bold;
+    color: var(--ifusp-azul-claro);
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+nav a:last-child {
+    margin-right: 0;
+}
+
+/* Form section styles */
+#evaluation-form {
+    width: 100%;
+    max-width: 700px;
+    padding: 0 20px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 16px;
+        text-align: center;
+    }
+
+    header img {
+        margin: 0 0 12px 0;
+        float: none;
+    }
+
+    h1 {
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    main {
+        width: 100%;
+        padding: 0;
+    }
+
+    form {
+        margin: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    select {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+
+    button[type="submit"] {
+        width: 100%;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    nav a {
+        margin: 0;
+        padding: 8px 16px;
+    }
+}
+
+/* Fix textarea responsiveness */
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Improve select dropdowns */
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--ifusp-cinza-medio);
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+    background-color: var(--ifusp-branco);
 }
