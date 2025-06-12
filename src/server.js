@@ -26,10 +26,21 @@ app.post('/api/evaluations', (req, res) => {
             return res.status(500).json({ error: 'Failed to read evaluations' });
         }
 
-        const evaluations = JSON.parse(data);
+        let dataObj = JSON.parse(data);
+        let evaluations;
+        if (Array.isArray(dataObj)) {
+            evaluations = dataObj;
+        } else if (Array.isArray(dataObj.evaluations)) {
+            evaluations = dataObj.evaluations;
+        } else {
+            evaluations = [];
+        }
         evaluations.push(newEvaluation);
 
-        fs.writeFile(path.join(__dirname, 'data', 'evaluations.json'), JSON.stringify(evaluations, null, 2), (err) => {
+        // Salva no mesmo formato do arquivo original
+        let toSave = Array.isArray(dataObj) ? evaluations : { evaluations };
+
+        fs.writeFile(path.join(__dirname, 'data', 'evaluations.json'), JSON.stringify(toSave, null, 2), (err) => {
             if (err) {
                 return res.status(500).json({ error: 'Failed to save evaluation' });
             }
