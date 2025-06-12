@@ -8,16 +8,25 @@ Este projeto é uma aplicação web que permite que estudantes do Instituto de F
 ifusp-evaluation-website
 ├── public
 │   ├── index.html         # Documento HTML principal do site
+│   ├── avaliacoes.html    # Documento HTML com avaliações anteriores
+│   │
 │   ├── styles
-│   │   └── main.css       # Estilos CSS do site
+│   │   └── ifusp-palette.css   # Estilos CSS do site
+│   │
 │   └── scripts
 │       └── main.js        # JavaScript para interações do usuário
+│       └── avaliacoes.js  # JavaScript para interações do usuário
+│
 ├── src
 │   ├── server.js          # Ponto de entrada da aplicação no servidor
-│   └── data
-│       └── evaluations.json # Armazena as avaliações em formato JSON
-├── package.json            # Arquivo de configuração do npm
-└── README.md               # Documentação do projeto
+│   │
+│   ├── data
+│   │   └── evaluations.json    # Armazena as avaliações em formato JSON
+│   │
+│   └── ifusp.png          # Logo do IFUSP
+│
+├── package.json           # Arquivo de configuração do npm
+└── README.md              # Documentação do projeto
 ```
 
 ## Orientações de Uso
