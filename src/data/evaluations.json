@@ -1,0 +1,22 @@
+{
+  "evaluations": [
+    {
+      "professor": "Maria Oliveira",
+      "subject": "Física I",
+      "rating": 5,
+      "comments": "Excelente didática e muito atenciosa com os alunos."
+    },
+    {
+      "professor": "João Silva",
+      "subject": "Física Experimental II",
+      "rating": 4,
+      "comments": "Aulas práticas bem organizadas, mas poderia melhorar a pontualidade."
+    },
+    {
+      "professor": "Ana Souza",
+      "subject": "Mecânica Quântica",
+      "rating": 3,
+      "comments": "Conteúdo difícil, mas a professora se esforça para explicar."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliações IFUSP</title>
+    <link rel="stylesheet" href="styles/ifusp-palette.css">
+    <!-- <link rel="stylesheet" href="styles/main.css"> -->
+</head>
+<body>
+    <header>
+        <img src="../src/ifusp.png" alt="IFUSP" style="height:48px;width:auto;vertical-align:middle;margin-right:16px;float:left;">
+        <h1 style="margin-left:64px;">Avaliações Anônimas de Professores e Disciplinas</h1>
+    </header>
+    <nav style="margin: 20px 0; text-align: center;">
+        <a href="index.html" id="nav-avaliar" style="margin-right: 24px; font-weight: bold; color: var(--ifusp-azul-claro); text-decoration: none;">Avaliar</a>
+        <a href="avaliacoes.html" id="nav-avaliacoes" style="font-weight: bold; color: var(--ifusp-azul-claro); text-decoration: none;">Ver Avaliações</a>
+    </nav>
+    <main>
+        <section id="evaluation-form" style="max-width: 700px;">
+            <h2>Envie sua Avaliação de matéria do IFUSP</h2>
+            <form id="form">
+                <label for="professor">Nome do(a) Professor(a):</label>
+                <input type="text" id="professor" required placeholder="Ex: Joãozinho da Silva.">
+                
+                <label for="subject">Disciplina (de preferência com Sigla):</label>
+                <input type="text" id="subject" required placeholder="Ex: 4302111 - Física I.">
+                
+                <label for="rating">Nota para a Matéria (1-10):</label>
+                <input type="number" id="rating" min="1" max="10" required placeholder="Uma nota padrão, de 1 a 10.">
+                
+                <label for="comments">Comentários (o mais importante):</label>
+                <textarea id="comments" required placeholder="Descreva sua experiência, pontos positivos e negativos... seja o quão breve ou prolixo desejar ser, o importante é descrever a experiência."></textarea>
+                
+                <button type="submit">Enviar Avaliação</button>
+            </form>
+        </section>
+    </main>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
