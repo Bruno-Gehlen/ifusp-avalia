@@ -4,6 +4,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form');
     const evaluationList = document.getElementById('evaluation-list');
 
+    // Preenche selects dinamicamente
+    fetch('professores.json')
+        .then(res => res.json())
+        .then(professores => {
+            const select = document.getElementById('professor');
+            professores.forEach(nome => {
+                const opt = document.createElement('option');
+                opt.value = nome;
+                opt.textContent = nome;
+                select.appendChild(opt);
+            });
+            new Choices(select, { searchEnabled: true, itemSelectText: '', shouldSort: false });
+        });
+    fetch('disciplinas.json')
+        .then(res => res.json())
+        .then(disciplinas => {
+            const select = document.getElementById('subject');
+            disciplinas.forEach(nome => {
+                const opt = document.createElement('option');
+                opt.value = nome;
+                opt.textContent = nome;
+                select.appendChild(opt);
+            });
+            new Choices(select, { searchEnabled: true, itemSelectText: '', shouldSort: false });
+        });
+
     // Carrega avaliações anteriores
     fetch('/api/evaluations')
         .then(response => response.json())
@@ -87,29 +113,29 @@ document.addEventListener('DOMContentLoaded', () => {
             evaluationList.appendChild(div);
             form.reset();
         });
+
+        // Ajusta altura da caixa de comentários automaticamente
+        const commentsBox = document.getElementById('comments');
+        if (commentsBox) {
+            commentsBox.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+        }
+
+        // Mostrar/ocultar avaliações anteriores
+        const showBtn = document.getElementById('show-evaluations');
+        const hideBtn = document.getElementById('hide-evaluations');
+        const evaluationsSection = document.getElementById('evaluations');
+        if (showBtn && hideBtn && evaluationsSection) {
+            showBtn.addEventListener('click', () => {
+                evaluationsSection.style.display = 'block';
+                showBtn.style.display = 'none';
+            });
+            hideBtn.addEventListener('click', () => {
+                evaluationsSection.style.display = 'none';
+                showBtn.style.display = 'inline-block';
+            });
+        }
     });
-
-    // Ajusta altura da caixa de comentários automaticamente
-    const commentsBox = document.getElementById('comments');
-    if (commentsBox) {
-        commentsBox.addEventListener('input', function() {
-            this.style.height = 'auto';
-            this.style.height = (this.scrollHeight) + 'px';
-        });
-    }
-
-    // Mostrar/ocultar avaliações anteriores
-    const showBtn = document.getElementById('show-evaluations');
-    const hideBtn = document.getElementById('hide-evaluations');
-    const evaluationsSection = document.getElementById('evaluations');
-    if (showBtn && hideBtn && evaluationsSection) {
-        showBtn.addEventListener('click', () => {
-            evaluationsSection.style.display = 'block';
-            showBtn.style.display = 'none';
-        });
-        hideBtn.addEventListener('click', () => {
-            evaluationsSection.style.display = 'none';
-            showBtn.style.display = 'inline-block';
-        });
-    }
 });
