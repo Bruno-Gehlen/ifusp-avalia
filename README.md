@@ -26,6 +26,7 @@ ifusp-evaluation-website
 │   └── ifusp.png          # Logo do IFUSP
 │
 ├── package.json           # Arquivo de configuração do npm
+├── package-lock.json      # Lock file gerado automaticamente pelo npm
 └── README.md              # Documentação do projeto
 ```
 
